@@ -44,8 +44,6 @@ fs.readFile('data/routes.txt', 'utf-8', function(err, data){
 			ids.push(id);
 		}
 
-		// routes = JSON.parse(routes);
-
 		// add shape_ids to objects
 		for(var i = 0; i < routes.length; i++){
 			for(var j = 0; j < ids.length; j++){
@@ -59,11 +57,13 @@ fs.readFile('data/routes.txt', 'utf-8', function(err, data){
 		}
 		
 		routes = JSON.stringify(routes, null, 4);	// make array pretty
-		
+
 		// write to output.txt
 		fs.writeFile('output.txt', routes, function(err){
 			if (err) throw err;
 			console.log('It\'s saved!');
 		});
+
 	});	
 });
+
