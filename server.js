@@ -3,9 +3,9 @@ var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
-var main = require('./routes/main');
+
 var user = require('./routes/user');
-var route = require('./routes/route');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -26,14 +26,15 @@ if ('development' == app.get('env')) {
 
 // API Routes
 app.get('/users', user.findAll);
-app.get('/routes', route.findAll);
-app.get('/routes/:id', route.findById);
-app.post('/routes', route.addRoute);
-app.put('/route/:id', route.updateRoute);
-app.delete('/route/:id', route.deleteRoute);
+
+app.get('/api/routes', api.routes);
+app.get('/api/shapes', api.shapes);
+app.get('/api/trips', api.trips);
 
 // everything else goes to index.html
-app.get('/*', main.index);
+app.get('/*', function(req, res) {
+	res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+});
 
 // start server
 app.listen(port, function(){
