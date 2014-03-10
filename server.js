@@ -1,10 +1,9 @@
-var express = require('express');
-var http = require('http');
-var path = require('path');
-var mongoose = require('mongoose');
-var port = process.env.PORT || 3000;
+var express = require('express'),
+	http = require('http'),
+	path = require('path'),
+	port = process.env.PORT || 3000;
+// var mongoose = require('mongoose');
 
-var user = require('./routes/user');
 var api = require('./routes/api');
 
 var app = express();
@@ -21,15 +20,13 @@ app.use(express.session());
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
-  mongoose.connect('mongodb://localhost/opendatake');
+  // mongoose.connect('mongodb://localhost/opendatake');
 }
 
 // API Routes
-app.get('/users', user.findAll);
-
-app.get('/api/routes', api.routes);
-app.get('/api/shapes', api.shapes);
-app.get('/api/trips', api.trips);
+app.get('/api/v1/routes', api.routes);
+app.get('/api/v1/shapes', api.shapes);
+app.get('/api/v1/trips', api.trips);
 
 // everything else goes to index.html
 app.get('/*', function(req, res) {

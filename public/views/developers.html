@@ -1,1 +1,48 @@
-<h2>Welcome to the Developers API</h2>
+<h2 class='text-center'>Welcome to the Developers API</h2>
+
+<div class='row'>
+Get information about routes:
+<code>GET /api/v1/routes</code>
+
+<pre>
+{
+  "route_id": {
+    "short_name": "route_short_name",
+    "long_name": "route_long_name",
+    "description": "route_desc"
+  },
+  ...
+}
+</pre>
+</div>
+
+<div class='row'>
+Get all positions of all routes:
+<code>GET /api/v1/shapes</code>
+
+<pre>
+{
+  "shape_id": [
+    [
+      "shape_pt_sequence",
+      "shape_pt_lat",
+      "shape_pt_lon"
+    ]
+  ],
+  ...
+}
+</pre>
+</div>
+
+
+<div class='row'>
+Match route ids to shape ids
+<code>GET /api/v1/trips</code>
+
+<pre>
+{
+  "route_id": "shape_id",
+  ...
+}
+</pre>
+</div>
