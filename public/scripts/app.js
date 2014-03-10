@@ -1,13 +1,15 @@
 'use strict';
 
-angular.module('publicApp', [
+var app = angular.module('publicApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute',
   'leaflet-directive'
-  ])
-  .config(function ($routeProvider) {
+  ]);
+
+app.config(['$routeProvider', '$locationProvider',
+  function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -19,4 +21,6 @@ angular.module('publicApp', [
       .otherwise({
         redirectTo: '/'
       });
-  });
+
+      $locationProvider.html5Mode(true);
+  }]);

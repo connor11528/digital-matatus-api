@@ -1,11 +1,11 @@
-<h2 class='text-center'>Welcome to the Developers API</h2>
+<h2 class='text-center'>API for Nairobi bus route data</h2>
 
 <div class='row text-center'>
 Base url: <code>http://digitalmatatus.herokuapp.com</code>
 </div>
 <br>
 <div class='row'>
-Get information about routes:
+Get all routes:
 <code>GET /api/v1/routes</code>
 
 <pre>
@@ -21,7 +21,36 @@ Get information about routes:
 </div>
 
 <div class='row'>
-Get all positions of all routes:
+Get route by route_id:
+<code>GET /api/v1/routes/:route_id</code>
+
+<pre>
+{
+    "short_name": "route_short_name",
+    "long_name": "route_long_name",
+    "description": "route_desc"
+}
+</pre>
+</div>
+
+<div class='row'>
+Get shape by shape_id:
+<code>GET /api/v1/shapes/:shape_id</code>
+
+<pre>
+[
+    [
+      "shape_pt_sequence",
+      "shape_pt_lat",
+      "shape_pt_lon"
+    ],
+    ...
+]
+</pre>
+</div>
+
+<div class='row'>
+Get all shapes of all routes:
 <code>GET /api/v1/shapes</code>
 
 <pre>
@@ -40,7 +69,7 @@ Get all positions of all routes:
 
 
 <div class='row'>
-Match route ids to shape ids
+Get all route ids matched to shape ids
 <code>GET /api/v1/trips</code>
 
 <pre>
