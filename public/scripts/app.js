@@ -12,6 +12,9 @@ angular.module('publicApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/developers', {
+        templateUrl: 'views/developers.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
