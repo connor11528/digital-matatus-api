@@ -16,6 +16,15 @@ exports.route = function(req, res){
 	}
 };
 
+exports.getShape = function(req, res){
+	var shape_id = trips[req.params.route_id];
+	if(shape_id){
+		res.jsonp(shape_id);
+	} else {
+		res.send('That\'s not a valid route id');
+	}
+};
+
 exports.shapes = function(req, res){
 	res.jsonp(shapes)
 };

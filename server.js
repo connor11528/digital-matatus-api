@@ -26,6 +26,7 @@ if ('development' == app.get('env')) {
 // API Routes
 app.get('/api/v1/routes', api.routes);
 app.get('/api/v1/routes/:route_id', api.route)
+app.get('/api/v1/routes/getShape/:route_id', api.getShape)
 
 app.get('/api/v1/shapes', api.shapes);
 app.get('/api/v1/shapes/:shape_id', api.ashape)
