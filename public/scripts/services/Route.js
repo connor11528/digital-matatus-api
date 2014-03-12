@@ -3,8 +3,10 @@
 app.factory('Route', ['$http', function($http){
 
 	var Route = {
-		draw: function(route_id){
-			return 'Draw route with route_id: ' + route_id;
+		getCoords: function(shape_id, success, error){
+			var promise = $http.get('/api/v1/shapes/' + shape_id)
+			.success(success)
+			.error(error);
 		},
 		getAllRoutes: function(success, error){
 			var promise = $http.get('/api/v1/routes')

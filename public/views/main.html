@@ -2,25 +2,33 @@
 <div class='row'>
 
 <div class="btn-group-vertical col-md-3">
+
 	<div class='input-group input-block-level'>
 		<span class="input-group-addon glyphicon glyphicon-search"></span>
 		<input type='text' placeholder='Search' class='form-control' ng-model='search'>
 	</div>
-	<div class='btn btn-default input-block-level' ng-repeat="route in routes | searchRoutes: search">
+
+	<div class='btn btn-default input-block-level' 
+		ng-repeat="route in routes | searchRoutes: search" 
+		ng-click='drawRoute(route.shape_id)'>
+
 		<h2>{{ route.short_name }}</h2>
 		<p>{{ route.long_name }}</p>
+		<p>route_id: {{ route.route_id }} </p>
+		<p>shape_id: {{ route.shape_id }}</p>
 	</div>
 </div>
 
 <div class='col-md-8'>
-<leaflet 
-	center="nairobi" 
-	paths="paths" 
-	markers="markers" 
-	defaults="defaults" 
-	height="600">
-</leaflet>
+	<leaflet 
+		center="nairobi" 
+		paths="paths" 
+		markers="markers" 
+		defaults="defaults" 
+		height="600">
+	</leaflet>
 </div>
 
 </div>
-{{routes}}
+{{paths}}
+{{routeToDraw}}
