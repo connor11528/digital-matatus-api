@@ -1,9 +1,11 @@
-// this uses the data that was manually converted to JSON with programs in data_transform/utils/
+// Manual API
+// uses the data that was manually converted to 
+// JSON with programs in data_transform/utils/
 // =======================================
 
-var routes = require('../data_transform/routes.min.json');
-var shapes = require('../data_transform/shapes.min.json');
-var trips = require('../data_transform/trips.min.json');
+var routes = require('../../data_transform/routes.min.json');
+var shapes = require('../../data_transform/shapes.min.json');
+var trips = require('../../data_transform/trips.min.json');
 
 exports.routes = function(req, res){
 	res.jsonp(routes)
