@@ -1,44 +1,24 @@
 var express = require('express'),
-	http = require('http'),
-	path = require('path'),
-	port = process.env.PORT || 3000;
-// var mongoose = require('mongoose');
+	env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
+	app = express();
 
-var api = require('./routes/api');
+// ENVIRONMENS
+var envConfig = require('./server/config/env')[env];
+console.log(envConfig)
 
-var app = express();
-
-// all environments
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.logger('dev'));
-app.use(express.methodOverride());
-app.use(express.favicon());
-
-app.use(express.cookieParser('your secret here'));
-app.use(express.session());
+// EXPRESS CONFIG
+require('./server/config/express')(app, envConfig)
 
 // development only
+app.use(express.logger('dev'));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
-  // mongoose.connect('mongodb://localhost/opendatake');
 }
 
 // API Routes
-app.get('/api/v1/routes', api.routes);
-app.get('/api/v1/routes/:route_id', api.route)
-app.get('/api/v1/routes/getShape/:route_id', api.getShape)
-
-app.get('/api/v1/shapes', api.shapes);
-app.get('/api/v1/shapes/:shape_id', api.ashape)
-
-app.get('/api/v1/trips', api.trips);
-
-// everything else goes to index.html
-app.get('/*', function(req, res) {
-	res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
-});
+require('./server/config/routes')(app)
 
 // start server
-app.listen(port, function(){
-  console.log('Express server listening on port ' + port);
+app.listen(envConfig.port, function(){
+  console.log('Express server listening on port ' + envConfig.port);
 });
