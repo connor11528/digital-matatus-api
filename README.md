@@ -1,16 +1,33 @@
-Digital matatus
+Digital matatus API
 ========
 
 ** work in progress **
 
-This is a javascript application that serves up the data collected from the [digital matatus](www.digitalmatatus.com) in a usable form.
+www.digitalmatatus.com
 
-The node.js server sends JSON while angular and leaflet.js are used on the frontend in the `public/` directory
+Javascript application serving JSON about Nairobi's matatu (public bus) routes
 
+120 routes mapped
+
+version 1 routes serve json files
+```
+/api/v1/routes'
+/api/v1/routes/:route_id'
+/api/v1/routes/getShape/:route_id
+/api/v1/shapes
+/api/v1/shapes/:shape_id
+/api/v1/trips
+```
+
+version 2 will parse the csv on server:
 ```
 /api/routes
 /api/shapes
 /api/trips
 ```
 
-All data endpoints can be found in `server/config/routes.js`
+no practical differences between the data that'll be served
+
+jquery demo: http://jasonshark.github.io/digital-matatu-client/
+
+consumer source: https://github.com/jasonshark/digital-matatu-client

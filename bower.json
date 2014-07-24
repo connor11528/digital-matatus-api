@@ -11,14 +11,10 @@
     "angular-cookies": "1.2.6",
     "angular-sanitize": "1.2.6",
     "angular-route": "1.2.6",
-    "leaflet-dist": "~0.7.2",
-    "angular-leaflet": "~0.7.5"
+    "leaflet-dist": "~0.7.2"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",
     "angular-scenario": "1.2.6"
-  },
-  "resolutions": {
-    "jquery": "2.1.0"
   }
 }

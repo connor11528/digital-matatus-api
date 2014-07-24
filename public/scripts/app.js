@@ -1,12 +1,11 @@
 'use strict';
 
-var app = angular.module('publicApp', [
+var app = angular.module('digital-matatus', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute',
-  'leaflet-directive'
-  ]);
+  'ngRoute'
+]);
 
 app.config(['$routeProvider', '$locationProvider',
   function ($routeProvider, $locationProvider) {
