@@ -28,6 +28,4 @@ version 2 will parse the csv on server:
 
 no practical differences between the data that'll be served
 
-jquery demo: http://jasonshark.github.io/digital-matatu-client/
-
 consumer source: https://github.com/jasonshark/digital-matatu-client
